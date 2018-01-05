@@ -20,18 +20,6 @@ class App extends Component {
       .then(res => this.setState({ prices: res.data }))
   }
 
-  printPrices(prices) {
-    const cryptoTypes = Object.keys(prices)
-    return cryptoTypes.map(function(type) {
-      const priceUSD = prices[type]['USD']
-      return (
-        <li>
-          {type} is currently worth ${priceUSD}
-        </li>
-      )
-    })
-  }
-
   render() {
     // Loop through entire array of prices and print out prices
     console.log(this.state.prices)
@@ -40,7 +28,6 @@ class App extends Component {
         <MenuBar />
           <Header as='h1' style={headerStyle}>Total Price: $9999</Header>
           <InfoCard prices={this.state.prices} />
-          {this.printPrices(this.state.prices)}
       </div>
     )
   }
