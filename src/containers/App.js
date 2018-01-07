@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Header } from 'semantic-ui-react'
+import { Header, Container } from 'semantic-ui-react'
 import MenuBar from '../components/MenuBar'
 import InfoCard from '../components/InfoCard'
 
@@ -26,14 +26,19 @@ class App extends Component {
     return (
       <div className="App">
         <MenuBar />
-          <Header as='h1' style={headerStyle}>Total Price: $9999</Header>
+
+        {/* <Container> */}
+          <Header as="h1" style={headerStyle}>
+            Total Portfolio: $9999
+          </Header>
           <InfoCard prices={this.state.prices} />
+        {/* </Container> */}
       </div>
     )
   }
 }
 
-const headerStyle={
+const headerStyle = {
   textAlign: 'center'
 }
 
