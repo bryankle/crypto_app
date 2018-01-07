@@ -5,8 +5,7 @@ const CardExampleFluid = function({ prices }) {
   const cards = Object.keys(prices).map(function(type) {
     const priceUSD = prices[type]['USD']
     return (
-        <Container>
-            <Card fluid color="black">
+        <Card fluid color="black">
           <Card.Content>
             <Card.Header>{type}</Card.Header>
             <Card.Meta>${priceUSD}</Card.Meta>
@@ -15,22 +14,19 @@ const CardExampleFluid = function({ prices }) {
             </Card.Description>
           </Card.Content>
         </Card>
-            </Container>
     )
   })
 
-  return (<Card.Group>{cards}
-  <Container>
-            <Card fluid color="black">
+  return (
+    <Card.Group>
+      {cards}
+        <Card fluid color="black">
           <Card.Content>
-         
-            <Card.Description>
-              Add another coin
-            </Card.Description>
+            <Card.Description>Add another coin</Card.Description>
           </Card.Content>
         </Card>
-            </Container>
-  </Card.Group>)
-}   
+    </Card.Group>
+  )
+}
 
 export default CardExampleFluid

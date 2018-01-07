@@ -31,7 +31,9 @@ class App extends Component {
           <Header as="h1" style={headerStyle}>
             Total Portfolio: $9999
           </Header>
+          <Container>
           <InfoCard prices={this.state.prices} />
+          </Container>
         {/* </Container> */}
       </div>
     )
