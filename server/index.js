@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({ exnteded: true }))
 app.use(cors())
 
 // router(app)
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+  }
 
 const PORT = 3001
 app.listen(PORT, (req, res, next) => {
