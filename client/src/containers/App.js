@@ -28,9 +28,9 @@ class App extends Component {
         <MenuBar />
 
         {/* <Container> */}
-          <Header as="h1" style={headerStyle}>
-            Total Portfolio: $9999
-          </Header>
+          {/* <Header as="h1" style={headerStyle}>
+            Cryptotrace
+          </Header> */}
           <Container>
           <InfoCard prices={this.state.prices} />
           </Container>

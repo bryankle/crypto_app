@@ -13,16 +13,16 @@ class MenuBar extends Component {
         <Menu stackable>
         <Menu.Item>
           {/* <img src='/logo.png' /> */}
-          KyptoBook
+          Cryptotrace
         </Menu.Item>
 
         <Menu.Item
         position='right'
-          name='home'
-          active={activeItem === 'home'}
+          name='register'
+          active={activeItem === 'register'}
           onClick={this.handleItemClick}
         >
-          Home
+          Register
         </Menu.Item>
 
         <Menu.Item
@@ -30,7 +30,7 @@ class MenuBar extends Component {
           active={activeItem === 'sign-in'}
           onClick={this.handleItemClick}
         >
-          Sign-in
+          Login
         </Menu.Item>
       </Menu>
     )
