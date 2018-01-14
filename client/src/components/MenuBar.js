@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class MenuBar extends Component {
   state = {}
@@ -10,27 +11,27 @@ class MenuBar extends Component {
     const { activeItem } = this.state
 
     return (
-        <Menu stackable>
+      <Menu stackable>
         <Menu.Item>
           {/* <img src='/logo.png' /> */}
-          Cryptotrace
+          <Link to='/'>Cryptotrace</Link>
         </Menu.Item>
 
         <Menu.Item
-        position='right'
-          name='register'
+          position="right"
+          name="register"
           active={activeItem === 'register'}
           onClick={this.handleItemClick}
         >
-          Register
+          <Link to="/signup">Register</Link>
         </Menu.Item>
 
         <Menu.Item
-          name='sign-in'
+          name="sign-in"
           active={activeItem === 'sign-in'}
           onClick={this.handleItemClick}
         >
-          Login
+          <Link to="/signin">Login</Link>
         </Menu.Item>
       </Menu>
     )
