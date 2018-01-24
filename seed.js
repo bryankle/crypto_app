@@ -5,7 +5,7 @@ var Promise = require('bluebird')
 var { db, User } = require('./database/models')
 
 var data = {
-  user: [{ name: 'bryan' }]
+  user: [{ email: 'bryan', password: 'bryanspassword' }]
 }
 
 db
