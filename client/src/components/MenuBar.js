@@ -14,7 +14,7 @@ class MenuBar extends Component {
       <Menu stackable>
         <Menu.Item>
           {/* <img src='/logo.png' /> */}
-          <Link to="/">Bryan's Website</Link>
+          <Link to="/">Cryptotrace</Link>
         </Menu.Item>
 
         <Menu.Item
