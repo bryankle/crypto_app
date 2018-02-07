@@ -1,20 +1,47 @@
 import React, { Component } from 'react'
-import { reduxForm } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
+import { connect } from 'react-redux'
 import { Form, Segment, Button, Grid, Header, Message } from 'semantic-ui-react'
+import * as actions from '../../actions';
 
 class Signin extends Component {
   constructor(props) {
     super(props)
   }
 
-  handleFormSubmit({email, password}) {
+  handleFormSubmit({ email, password }) {
     console.log(email, password);
     // Need to do something to log user in
+    this.props.signinUser({ email, password }, () => {
+      this.props.history.push('/')
+    })
+  }
+
+  renderInput({ label, ...field }) {
+    return (
+      <Form.Input
+        { ...field.input }
+        fluid
+        icon={label === 'Username' ? 'user' : 'lock'}
+        iconPosition='left'
+        placeholder={label}
+      />
+    )
+  }
+
+  renderAlert() {
+    if (this.props.errorMessage) {
+      return (
+        <div>
+          <strong>{this.props.errorMessage}</strong>
+        </div>
+      )
+    }
   }
 
   render() {
 
-    const { handleSubmit, fields: { email, password }} = this.props;
+    const { handleSubmit, fields: { email, password } } = this.props;
 
     return (
       <Grid
@@ -27,27 +54,14 @@ class Signin extends Component {
             Log-in to your account
           </Header>
           <Form size="large"
-          onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Segment stacked>
-              <Form.Input
-                fluid
-                icon="user"
-                iconPosition="left"
-                placeholder="E-mail address"
-                {...email}
-              />
-              <Form.Input
-                fluid
-                icon="lock"
-                iconPosition="left"
-                placeholder="Password"
-                type="password"
-                {...password}
-              />
+              <Field name="email" component={this.renderInput} label="Username" />
+              <Field name="password" component={this.renderInput} label="Password" />
 
-              <Button color="teal" fluid size="large">
-                Login
-              </Button>
+              {this.renderAlert()}
+
+              <Button color='teal' fluid size='large'>Login</Button>
             </Segment>
           </Form>
           <Message>
@@ -62,4 +76,4 @@ class Signin extends Component {
 export default reduxForm({
   form: 'signin',
   fields: ['email', 'password']
-})(Signin);
+})(connect(null, actions)(Signin));
