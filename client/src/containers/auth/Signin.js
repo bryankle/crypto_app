@@ -11,7 +11,7 @@ class Signin extends Component {
 
   handleFormSubmit({ email, password }) {
     console.log(email, password);
-    // Need to do something to log user in
+    // Reroute user to main page if sign in was successful
     this.props.signinUser({ email, password }, () => {
       this.props.history.push('/')
     })
@@ -25,6 +25,7 @@ class Signin extends Component {
         icon={label === 'Username' ? 'user' : 'lock'}
         iconPosition='left'
         placeholder={label}
+        type={ label === 'Password' ? 'password' : '' }
       />
     )
   }
@@ -33,7 +34,9 @@ class Signin extends Component {
     if (this.props.errorMessage) {
       return (
         <div>
-          <strong>{this.props.errorMessage}</strong>
+          <Message negative>
+            <Message.Header>{this.props.errorMessage}</Message.Header>
+          </Message>
         </div>
       )
     }
@@ -73,7 +76,11 @@ class Signin extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { errorMessage: state.auth.error };
+}
+
 export default reduxForm({
   form: 'signin',
   fields: ['email', 'password']
-})(connect(null, actions)(Signin));
+})(connect(mapStateToProps, actions)(Signin));
