@@ -14,9 +14,9 @@ import Signup from './containers/auth/Signup'
 import Signin from './containers/auth/Signin'
 import MenuBar from './components/MenuBar'
 
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
+// const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStore(reducers, composeWithDevTools(
-  // applyMiddleware(...middleware),
+  applyMiddleware(reduxThunk),
   // other store enhancers if any
 ));
 
