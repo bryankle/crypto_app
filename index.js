@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 3001
 app.listen(PORT, (req, res, next) => {
   console.log('Listening on port: ', PORT)
-  console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
+
   db
     .sync()
     .then(() => console.log('Database is connected'))
