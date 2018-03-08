@@ -38,7 +38,7 @@ export function signupUser({ email, password }, redirect) {
 				redirect()
 			})
 			// If request is bad
-			.catch( error => dispatch(authError(error.response.data.error)));
+			.catch( response => dispatch(authError(response.data.error)));
 	}
 }
 
