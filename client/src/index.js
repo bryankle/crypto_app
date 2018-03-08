@@ -1,18 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducers from './reducers'
-import reduxThunk from 'redux-thunk'
-import registerServiceWorker from './registerServiceWorker'
-import { Container } from 'semantic-ui-react'
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
+import reducers from './reducers';
+import reduxThunk from 'redux-thunk';
+import registerServiceWorker from './registerServiceWorker';
+import { Container } from 'semantic-ui-react';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
-import PricePage from './containers/PricePage'
-import Signup from './containers/auth/Signup'
-import Signin from './containers/auth/Signin'
-import MenuBar from './components/MenuBar'
+import PricePage from './containers/PricePage';
+import Signup from './containers/auth/Signup';
+import Signin from './containers/auth/Signin';
+import Signout from './containers/auth/Signout';
+import MenuBar from './components/MenuBar';
+
 
 // const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStore(reducers, composeWithDevTools(
@@ -29,6 +31,7 @@ ReactDOM.render(
           <Switch>
             <Route path="/signup" component={Signup} />
             <Route path="/signin" component={Signin} />
+            <Route path="/signout" component={Signout} />
             <Route exact path="/" component={PricePage} />
           </Switch>
         </Container>

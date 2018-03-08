@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { reduxForm, Field } from 'redux-form'
-import { connect } from 'react-redux'
-import { Form, Segment, Button, Grid, Header, Message } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { Form, Segment, Button, Grid, Header, Message } from 'semantic-ui-react';
 import * as actions from '../../actions';
 
 class Signin extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   handleFormSubmit({ email, password }) {
@@ -20,12 +20,12 @@ class Signin extends Component {
   renderInput({ label, ...field }) {
     return (
       <Form.Input
-        { ...field.input }
+        {...field.input}
         fluid
         icon={label === 'Username' ? 'user' : 'lock'}
         iconPosition='left'
         placeholder={label}
-        type={ label === 'Password' ? 'password' : '' }
+        type={label === 'Password' ? 'password' : ''}
       />
     )
   }

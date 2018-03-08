@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router'
-import { AUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
 
 const ROOT_URL = 'http://localhost:3001';
 
@@ -26,9 +26,31 @@ export function signinUser({ email, password }, redirect) {
     }
 }
 
+export function signupUser({ email, password }, redirect) {
+	return function(dispatch) {
+		// Submit username/password to the server
+		axios.post(`${ROOT_URL}/signup`, { email, password })
+			.then(response => {
+				console.log("User has successfully signed up")
+				dispatch({ type: AUTH_USER })
+				localStorage.setItem('token', response.data.token);
+				localStorage.setItem('email', email);
+				redirect()
+			})
+			// If request is bad
+			.catch( error => dispatch(authError(error.response.data.error)));
+	}
+}
+
 export function authError(error) {
     return {
         type: AUTH_ERROR,
         payload: error
     }
+}
+
+export function signoutUser() {
+    localStorage.removeItem('token');
+    
+    return { type: UNAUTH_USER }
 }
