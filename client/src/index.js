@@ -12,7 +12,8 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import PricePage from './containers/PricePage';
 import Signup from './containers/auth/Signup';
 import Signin from './containers/auth/Signin';
-import Signout from './containers/auth/Signout';
+import Sign from './containers/auth/Sign';
+// import Signout from './containers/auth/Signout';
 import MenuBar from './components/MenuBar';
 
 
@@ -31,7 +32,8 @@ ReactDOM.render(
           <Switch>
             <Route path="/signup" component={Signup} />
             <Route path="/signin" component={Signin} />
-            <Route path="/signout" component={Signout} />
+            <Route path="/sign" component={Sign} />
+            {/* <Route path="/signout" component={Signout} /> */}
             <Route exact path="/" component={PricePage} />
           </Switch>
         </Container>
