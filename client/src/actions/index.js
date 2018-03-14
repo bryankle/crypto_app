@@ -8,7 +8,7 @@ const ROOT_URL = 'cryptotrace.herokuapp.com';
 export function signinUser({ email, password }, redirect) {
     // Submit email/password to the server
     return function (dispatch) {
-        axios.post(`${ROOT_URL}/signin`, { email, password })
+        axios.post(`/signin`, { email, password })
             .then(response => {
                 console.log("User is logged in.")
                 // If request is good
@@ -30,7 +30,7 @@ export function signinUser({ email, password }, redirect) {
 export function signupUser({ email, password }, redirect) {
 	return function(dispatch) {
 		// Submit username/password to the server
-		axios.post(`${ROOT_URL}/signup`, { email, password })
+		axios.post(`/signup`, { email, password })
 			.then(response => {
 				console.log("User has successfully signed up")
 				dispatch({ type: AUTH_USER })
