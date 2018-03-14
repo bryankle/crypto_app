@@ -34,13 +34,13 @@ class MenuBar extends Component {
           <Link to="/signin">Login</Link>
         </Menu.Item>
 
-        <Menu.Item
+        {/* <Menu.Item
           name="sign-in"
           active={activeItem === 'sign-in'}
           onClick={this.handleItemClick}
         >
           <Link to="/signout">Signout</Link>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>
     )
   }
