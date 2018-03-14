@@ -2,7 +2,8 @@ import axios from 'axios';
 import { browserHistory } from 'react-router'
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
 
-const ROOT_URL = 'http://localhost:3001';
+// const ROOT_URL = 'http://localhost:3001';
+const ROOT_URL = 'cryptotrace.herokuapp.com';
 
 export function signinUser({ email, password }, redirect) {
     // Submit email/password to the server
