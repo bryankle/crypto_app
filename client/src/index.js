@@ -13,7 +13,7 @@ import PricePage from './containers/PricePage';
 import Signup from './containers/auth/Signup';
 import Signin from './containers/auth/Signin';
 import Sign from './containers/auth/Sign';
-// import Signout from './containers/auth/Signout';
+import Signout from './containers/auth/Signout';
 import MenuBar from './components/MenuBar';
 
 
@@ -33,7 +33,7 @@ ReactDOM.render(
             <Route path="/signup" component={Signup} />
             <Route path="/signin" component={Signin} />
             <Route path="/sign" component={Sign} />
-            {/* <Route path="/signout" component={Signout} /> */}
+            <Route path="/signout" component={Signout} />
             <Route exact path="/" component={PricePage} />
           </Switch>
         </Container>
