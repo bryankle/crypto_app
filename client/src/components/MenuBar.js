@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import * as actions from '../actions';
 import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
@@ -8,6 +10,8 @@ class MenuBar extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
+    console.log("From menu bar");
+    console.log()
     const { activeItem } = this.state
 
     return (
@@ -43,6 +47,12 @@ class MenuBar extends Component {
         </Menu.Item>
       </Menu>
     )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated
   }
 }
 
