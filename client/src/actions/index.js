@@ -2,8 +2,8 @@ import axios from 'axios';
 import { browserHistory } from 'react-router'
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
 
+import { ROOT_URL } from '../constants';
 // const ROOT_URL = 'http://localhost:3001';
-const ROOT_URL = 'cryptotrace.herokuapp.com';
 
 export function signinUser({ email, password }, redirect) {
     // Submit email/password to the server
@@ -28,18 +28,22 @@ export function signinUser({ email, password }, redirect) {
 }
 
 export function signupUser({ email, password }, redirect) {
+    console.log("Checking if local host");
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+        console.log("This is running in development mode");
+    }
 	return function(dispatch) {
 		// Submit username/password to the server
-		axios.post(`/signup`, { email, password })
+		axios.post(`${ROOT_URL}/signup`, { email, password })
 			.then(response => {
 				console.log("User has successfully signed up")
-				dispatch({ type: AUTH_USER })
+				dispatch({ type: AUTH_USER });
 				localStorage.setItem('token', response.data.token);
 				localStorage.setItem('email', email);
-				redirect()
+				redirect();
 			})
 			// If request is bad
-			.catch( response => dispatch(authError(response.data.error)));
+			.catch( error => dispatch(authError(error.response.data.error)));
 	}
 }
 
