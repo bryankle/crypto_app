@@ -22,9 +22,10 @@ class Signup extends Component {
       <span>
         <Form.Input
           fluid
-          icon={label === 'Username' ? 'user' : 'lock'}
+          icon={label === 'Email' ? 'user' : 'lock'}
           iconPosition='left'
           placeholder={label}
+          type={label !== 'Email' ? 'password' : ''}
           {...input}
         />
         {touched && error && <span>{error}</span>}
