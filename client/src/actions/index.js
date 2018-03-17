@@ -8,7 +8,7 @@ import { ROOT_URL } from '../constants';
 export function signinUser({ email, password }, redirect) {
     // Submit email/password to the server
     return function (dispatch) {
-        axios.post(`/signin`, { email, password })
+        axios.post(`${ROOT_URL}/signin`, { email, password })
             .then(response => {
                 console.log("User is logged in.")
                 // If request is good

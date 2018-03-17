@@ -8,6 +8,7 @@ import reduxThunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 import { Container } from 'semantic-ui-react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import RequireAuth from './containers/auth/require_auth';
 
 import PricePage from './containers/PricePage';
 import Signup from './containers/auth/Signup';
@@ -15,13 +16,20 @@ import Signin from './containers/auth/Signin';
 import Sign from './containers/auth/Sign';
 // import Signout from './containers/auth/Signout';
 import MenuBar from './components/MenuBar';
-
+import { AUTH_USER } from './actions/types';
 
 // const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(reduxThunk),
   // other store enhancers if any
 ));
+
+const token = localStorage.getItem('token');
+
+if (token) {
+  store.dispatch({ type: AUTH_USER })
+}
+
 
 ReactDOM.render(
   <Provider store={store}>
@@ -30,6 +38,7 @@ ReactDOM.render(
         <MenuBar />
         <Container>
           <Switch>
+            {/* <IndexRoute /> */}
             <Route path="/signup" component={Signup} />
             <Route path="/signin" component={Signin} />
             <Route path="/sign" component={Sign} />
