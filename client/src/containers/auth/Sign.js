@@ -13,7 +13,7 @@ class Sign extends Component {
 
     render() {
         return(
-            <div>Sign!</div>
+            <div>Signout</div>
         )
     }
 }

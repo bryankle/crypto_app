@@ -36,7 +36,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
-        <MenuBar />
+        {/* <MenuBar /> */}
         <Switch>
           {/* <IndexRoute /> */}
           <Route path="/signup" component={Signup} />
