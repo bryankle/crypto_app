@@ -14,6 +14,7 @@ import PricePage from './containers/PricePage';
 import Signup from './containers/auth/Signup';
 import Signin from './containers/auth/Signin';
 import Sign from './containers/auth/Sign';
+import LandingPage from './containers/LandingPage';
 // import Signout from './containers/auth/Signout';
 import MenuBar from './components/MenuBar';
 import { AUTH_USER } from './actions/types';
@@ -36,16 +37,14 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <MenuBar />
-        <Container>
-          <Switch>
-            {/* <IndexRoute /> */}
-            <Route path="/signup" component={Signup} />
-            <Route path="/signin" component={Signin} />
-            <Route path="/sign" component={Sign} />
-            {/* <Route path="/signout" component={Signout} /> */}
-            <Route exact path="/" component={PricePage} />
-          </Switch>
-        </Container>
+        <Switch>
+          {/* <IndexRoute /> */}
+          <Route path="/signup" component={Signup} />
+          <Route path="/signin" component={Signin} />
+          <Route path="/sign" component={Sign} />
+          {/* <Route path="/signout" component={Signout} /> */}
+          <Route exact path="/" component={LandingPage} />
+        </Switch>
       </div>
     </BrowserRouter>
   </Provider>,
