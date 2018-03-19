@@ -15,10 +15,13 @@ import {
     Sidebar,
     Visibility,
 } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import LandingImg from '../assets/images/landing2.jpg';
 
 import { HomepageHeading } from '../components/HomepageHeading';
 
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
@@ -27,6 +30,63 @@ import { HomepageHeading } from '../components/HomepageHeading';
 class DesktopContainer extends Component {
     state = {}
 
+
+    constructor(props) {
+        super(props);
+        this.scrollToTop = this.scrollToTop.bind(this);
+    }
+
+    componentDidMount() {
+
+        Events.scrollEvent.register('begin', function () {
+            console.log("begin", arguments);
+        });
+
+        Events.scrollEvent.register('end', function () {
+            console.log("end", arguments);
+        });
+
+    }
+    scrollToTop() {
+        scroll.scrollToTop();
+    }
+    scrollTo() {
+        scroller.scrollTo('scroll-to-element', {
+            duration: 800,
+            delay: 0,
+            smooth: 'easeInOutQuart'
+        })
+    }
+    scrollToWithContainer() {
+
+        let goToContainer = new Promise((resolve, reject) => {
+
+            Events.scrollEvent.register('end', () => {
+                resolve();
+                Events.scrollEvent.remove('end');
+            });
+
+            scroller.scrollTo('scroll-container', {
+                duration: 800,
+                delay: 0,
+                smooth: 'easeInOutQuart'
+            });
+
+        });
+
+        goToContainer.then(() =>
+            scroller.scrollTo('scroll-container-second-element', {
+                duration: 800,
+                delay: 0,
+                smooth: 'easeInOutQuart',
+                containerId: 'scroll-container'
+            }));
+    }
+    componentWillUnmount() {
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
+    }
+
     hideFixedMenu = () => this.setState({ fixed: false })
     showFixedMenu = () => this.setState({ fixed: true })
 
@@ -34,10 +94,10 @@ class DesktopContainer extends Component {
         const { children } = this.props
         const { fixed } = this.state
 
-        return (
+    return (
             <Responsive {...Responsive.onlyComputer}>
                 <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
-                    <Segment inverted textAlign='center' style={{ minHeight: 700, padding: '1em 0em' }} vertical>
+                    <Segment textAlign='center' style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url(${LandingImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '0 30%'}} vertical>
                         <Menu
                             fixed={fixed ? 'top' : null}
                             inverted={!fixed}
@@ -46,17 +106,21 @@ class DesktopContainer extends Component {
                             size='large'
                         >
                             <Container>
-                                <Menu.Item as='a' active>Home</Menu.Item>
-                                <Menu.Item as='a'>Work</Menu.Item>
-                                <Menu.Item as='a'>Company</Menu.Item>
+                                <Menu.Item as='a' onClick={this.scrollToTop} active>Home</Menu.Item>
+                                <Link to="features" spy={true} smooth={true} duration={500} >
+                                    <Menu.Item as='a'>Features</Menu.Item>
+                                </Link>
+                                <Link to="attention" spy={true} smooth={true} duration={500} >
+                                    <Menu.Item as='a'>Work</Menu.Item>
+                                </Link>
                                 <Menu.Item as='a'>Careers</Menu.Item>
                                 <Menu.Item position='right'>
-                                    <Link to='/signin'>
+                                    <RouterLink to='/signin'>
                                         <Button as='a' inverted={!fixed}>Log in</Button>
-                                    </Link>
-                                    <Link to='signup'>
+                                    </RouterLink>
+                                    <RouterLink to='signup'>
                                         <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>Sign Up</Button>
-                                    </Link>
+                                    </RouterLink>
                                 </Menu.Item>
                             </Container>
                         </Menu>

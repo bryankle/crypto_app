@@ -16,12 +16,16 @@ import {
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
+
+import LandingImg from '../assets/images/landing1.jpg';
+
 /* eslint-disable react/no-multi-comp */
 /* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
  * such things.
  */
 export const HomepageHeading = ({ mobile }) => (
     <Container text>
+    {/* <Image src={LandingImg} fluid/> */}
       <Header
         as='h1'
         content='Cryptotrace'

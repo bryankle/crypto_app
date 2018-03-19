@@ -24,7 +24,8 @@ import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy,
 import { HomepageHeading } from '../components/HomepageHeading';
 import DesktopContainer from './DesktopContainer';
 import MobileContainer from './MobileContainer';
-
+import { Features } from '../components/Features';
+import LandingImg from '../assets/images/landing1.jpg';
 
 const ResponsiveContainer = ({ children }) => (
   <div>
@@ -71,6 +72,10 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
+
+{/* TESTING */}
+   <Features />
+
     <Segment style={{ padding: '0em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
         <Grid.Row textAlign='center'>
@@ -88,7 +93,8 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
-    <Segment style={{ padding: '8em 0em' }} vertical>
+
+    <Segment name='attention' style={{ padding: '8em 0em' }} vertical>
       <Container text>
         <Header as='h3' style={{ fontSize: '2em' }}>Breaking The Grid, Grabs Your Attention</Header>
         <p style={{ fontSize: '1.33em' }}>
