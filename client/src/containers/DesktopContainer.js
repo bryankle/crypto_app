@@ -50,8 +50,8 @@ class DesktopContainer extends Component {
     scrollToTop() {
         scroll.scrollToTop();
     }
-    scrollTo() {
-        scroller.scrollTo('scroll-to-element', {
+    scrollTo(element) {
+        scroller.scrollTo(element, {
             duration: 800,
             delay: 0,
             smooth: 'easeInOutQuart'
@@ -94,26 +94,23 @@ class DesktopContainer extends Component {
         const { children } = this.props
         const { fixed } = this.state
 
-    return (
+        return (
             <Responsive {...Responsive.onlyComputer}>
                 <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
-                    <Segment textAlign='center' style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url(${LandingImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '0 30%'}} vertical>
+                    <Segment textAlign='center' style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url(${LandingImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '0 30%' }} vertical>
                         <Menu
                             fixed={fixed ? 'top' : null}
                             inverted={!fixed}
                             pointing={!fixed}
                             secondary={!fixed}
                             size='large'
+                            style={{ borderWidth: '0px' }} // override semantic border around menu bar
                         >
                             <Container>
                                 <Menu.Item as='a' onClick={this.scrollToTop} active>Home</Menu.Item>
-                                <Link to="features" spy={true} smooth={true} duration={500} >
-                                    <Menu.Item as='a'>Features</Menu.Item>
-                                </Link>
-                                <Link to="attention" spy={true} smooth={true} duration={500} >
-                                    <Menu.Item as='a'>Work</Menu.Item>
-                                </Link>
-                                <Menu.Item as='a'>Careers</Menu.Item>
+                                <Menu.Item onClick={() => this.scrollTo('features')} as='a'>Features</Menu.Item>
+                                <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Work</Menu.Item>
+                                <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Careers</Menu.Item>
                                 <Menu.Item position='right'>
                                     <RouterLink to='/signin'>
                                         <Button as='a' inverted={!fixed}>Log in</Button>
