@@ -21,7 +21,7 @@ import ChartImg from '../assets/images/charts.png';
 
 export const Features = () => (
 <Segment name='features' style={{ padding: '8em 0em' }} vertical>
-<Grid container columns={3} textAlign='center'>
+<Grid stackable container columns={3} textAlign='center'>
     <Grid.Column>
         <img src={ThumbImg} />
         <h1> Free </h1>
