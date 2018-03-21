@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
+import { Collapse } from 'reactstrap';
 import styled from 'styled-components';
-// import {
-//     Button,
-//     Container,
-//     Divider,
-//     Grid,
-//     Header,
-//     Icon,
-//     Image,
-//     List,
-//     Menu,
-//     Responsive,
-//     Segment,
-//     Sidebar,
-//     Visibility,
-// } from 'semantic-ui-react'
+import {
+    Divider,
+    Icon
+} from 'semantic-ui-react'
 
 const Button = styled.button`
   color: palevioletred;
@@ -37,10 +27,10 @@ const Sidebar = styled.div`
     padding-top: 20px;
 
 `
+// const SidebarProfile = styled.
 
-const SidebarItem = styled.li`
+const SidebarListItem = styled.li`
     list-style-type: none;
-    background-color: red;
     width: 50px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -49,19 +39,27 @@ const SidebarItem = styled.li`
     width: 220px;
     height: 40px;
     cursor: pointer;
-    &:hover ${SidebarItem} {
+    &:hover ${SidebarListItem} {
         opacity: 0.5;
+        background-color: red;
     }
 `
-const SidebarText = styled.p`
-    text-align: center;
+
+const SidebarListLink = styled.a`
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-left: 15%;
+    top: 25%;
+`
+
+const SidebarText = styled.p`
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline;
 `
 
 const SidebarWrapper = styled.ul`
-    background-color: yellow;
     padding-left: 0;
 `
 
@@ -77,6 +75,14 @@ const buttonStyle = {
 class Dashboard extends Component {
     constructor(props) {
         super(props)
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            collapse: false
+        }
+    }
+
+    toggle() {
+        this.setState({ collapse: !this.state.collapse })
     }
 
     render() {
@@ -84,15 +90,57 @@ class Dashboard extends Component {
             <div>
                 <Sidebar>
 
+                    <SidebarListLink onClick={this.toggle}>
+                        <SidebarText>
+                            Bryan Le
+                        </ SidebarText>
+                    </SidebarListLink>
+                    <Collapse isOpen={this.state.collapse}>
+                        <SidebarWrapper>
+                            <SidebarListItem>
+                                <SidebarListLink>
+                                    <Icon name='pie graph' />
+                                    <SidebarText>Dashboard</SidebarText>
+                                </SidebarListLink>
+                            </SidebarListItem>
+                            <SidebarListItem>
+                                <SidebarListLink>
+                                    <Icon name='user circle' />
+                                    <SidebarText>User Profile</SidebarText>
+                                </SidebarListLink>
+                            </SidebarListItem>
+                            <SidebarListItem>
+                                <SidebarListLink>
+                                    <Icon name='newspaper' />
+                                    <SidebarText>News</SidebarText>
+                                </SidebarListLink>
+                            </SidebarListItem>
+                        </SidebarWrapper>
+                    </Collapse>
+                    
+                    <Divider />
+                    
                     <SidebarWrapper>
-                        <SidebarItem>
-                            <SidebarText>Element 1</SidebarText>
-                        </SidebarItem>
-                        <SidebarItem>
-                            <SidebarText>Element 2</SidebarText>
-                        </SidebarItem>
+                        <SidebarListItem>
+                            <SidebarListLink>
+                                <Icon name='pie graph' />
+                                <SidebarText>Dashboard</SidebarText>
+                            </SidebarListLink>
+                        </SidebarListItem>
+                        <SidebarListItem>
+                            <SidebarListLink>
+                                <Icon name='user circle' />
+                                <SidebarText>User Profile</SidebarText>
+                            </SidebarListLink>
+                        </SidebarListItem>
+                        <SidebarListItem>
+                            <SidebarListLink>
+                                <Icon name='newspaper' />
+                                <SidebarText>News</SidebarText>
+                            </SidebarListLink>
+                        </SidebarListItem>
                     </SidebarWrapper>
-                <Button>Hello</Button>
+                    <Button>Hello</Button>
                 </Sidebar>
                 <div class='content' style={contentStyle}>This is the content</div>
             </div>
