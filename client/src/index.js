@@ -17,7 +17,10 @@ import Sign from './containers/auth/Sign';
 import LandingPage from './containers/LandingPage';
 // import Signout from './containers/auth/Signout';
 import MenuBar from './components/MenuBar';
+import Dashboard from './containers/Dashboard';
 import { AUTH_USER } from './actions/types';
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 // const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStore(reducers, composeWithDevTools(
@@ -42,6 +45,7 @@ ReactDOM.render(
           <Route path="/signup" component={Signup} />
           <Route path="/signin" component={Signin} />
           <Route path="/sign" component={Sign} />
+          <Route path="/dashboard" component={Dashboard} />
           {/* <Route path="/signout" component={Signout} /> */}
           <Route exact path="/" component={LandingPage} />
         </Switch>
