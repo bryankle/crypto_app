@@ -27,7 +27,7 @@ const SidebarListItem = styled.li`
     list-style-type: none;
     width: 50px;
     margin-top: 5px;
-    margin-bottom: 5px;
+    padding-bottom: 5px;
     margin-left: 15px;
     border-radius: 5px;
     width: 220px;
@@ -65,6 +65,7 @@ const SidebarText = styled.p`
 
 const SidebarWrapper = styled.ul`
     padding-left: 0;
+    margin: 0;
 `
 
 const User = styled.div`
