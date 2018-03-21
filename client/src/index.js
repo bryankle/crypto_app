@@ -14,10 +14,10 @@ import PricePage from './containers/PricePage';
 import Signup from './containers/auth/Signup';
 import Signin from './containers/auth/Signin';
 import Sign from './containers/auth/Sign';
-import LandingPage from './containers/LandingPage';
+import LandingPage from './views/Homepage/LandingPage';
 // import Signout from './containers/auth/Signout';
 import MenuBar from './components/MenuBar';
-import Dashboard from './containers/Dashboard';
+import Dashboard from './views/Dashboard/Dashboard';
 import { AUTH_USER } from './actions/types';
 
 import 'bootstrap/dist/css/bootstrap.css';

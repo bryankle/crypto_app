@@ -21,11 +21,11 @@ import * as Scroll from 'react-scroll';
 import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 
-import { HomepageHeading } from '../components/HomepageHeading';
-import DesktopContainer from './DesktopContainer';
-import MobileContainer from './MobileContainer';
-import { Features } from '../components/Features';
-import LandingImg from '../assets/images/landing1.jpg';
+import { HomepageHeading } from '../../components/HomepageHeading';
+import DesktopContainer from '../../containers/DesktopContainer';
+import MobileContainer from '../../containers/MobileContainer';
+import { Features } from '../../components/Features';
+import LandingImg from '../../assets/images/landing1.jpg';
 
 const ResponsiveContainer = ({ children }) => (
   <div>
