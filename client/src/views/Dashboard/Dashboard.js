@@ -3,7 +3,11 @@ import { Collapse } from 'reactstrap';
 import styled, { css } from 'styled-components';
 import {
     Divider,
-    Icon
+    Icon,
+    Container,
+    Segment,
+    Grid,
+    Header
 } from 'semantic-ui-react'
 
 import SidebarBackground from '../../assets/images/wave.jpg';
@@ -80,7 +84,7 @@ const User = styled.div`
     margin-left: 15px;
 `
 const Content = styled.main`
-    background-color: #f8f8f8;
+    margin-left: 30px;
 `
 
 const Navbar = styled.header`
@@ -167,9 +171,37 @@ class Dashboard extends Component {
                 </Sidebar>
                 <Main>
 
-                <Navbar />
-                <Content>hello</Content>
+                    <Navbar />
 
+                    <Content>
+                        <Grid columns={4} padded stackable>
+                            <Grid.Row>
+                                <Grid.Column>
+                                    <Segment>
+                                        <div>
+                                        <Icon style={{float: 'left'}} size='huge' name='bitcoin' color='yellow'/>
+                                        <span style={{textAlign: 'right'}}>
+                                            <p>Total Balance</p>
+                                            <h3>$1,234</h3>
+                                        </span>
+                                        </div>
+                                        <Divider />
+                                    </Segment>
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <Segment />
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <Segment />
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <Segment />
+                                </Grid.Column>
+                            </Grid.Row>
+
+
+                        </Grid>
+                    </Content>
                 </Main>
             </div>
         )
