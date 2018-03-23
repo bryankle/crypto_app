@@ -174,22 +174,33 @@ class Dashboard extends Component {
                     <Navbar />
 
                     <Content>
-                        <Grid columns={4} padded stackable>
-                            <Grid.Row>
+                        <Grid padded stackable>
+                            <Grid.Row columns={4}>
                                 <Grid.Column>
                                     <Segment>
                                         <div>
-                                        <Icon style={{float: 'left'}} size='huge' name='bitcoin' color='yellow'/>
-                                        <span style={{textAlign: 'right'}}>
-                                            <p>Total Balance</p>
-                                            <h3>$1,234</h3>
-                                        </span>
+                                            <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
+                                            <span style={{ textAlign: 'right' }}>
+                                                <p>Total Balance</p>
+                                                <h3>$1,234</h3>
+                                            </span>
                                         </div>
                                         <Divider />
+                                        <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated just now</p>
                                     </Segment>
                                 </Grid.Column>
                                 <Grid.Column>
-                                    <Segment />
+                                    <Segment>
+                                        <div>
+                                            <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
+                                            <span style={{ textAlign: 'right' }}>
+                                                <p>Total Balance</p>
+                                                <h3>$1,234</h3>
+                                            </span>
+                                        </div>
+                                        <Divider />
+                                        <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated 10 minutes ago</p>
+                                    </Segment>
                                 </Grid.Column>
                                 <Grid.Column>
                                     <Segment />
@@ -199,6 +210,52 @@ class Dashboard extends Component {
                                 </Grid.Column>
                             </Grid.Row>
 
+
+                            <Grid.Row columns={2}>
+                                <Grid.Column>
+                                    <Segment>
+                                        <div>
+                                            <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
+                                            <span style={{ textAlign: 'right' }}>
+                                                <p>Total Balance</p>
+                                                <h3>$1,234</h3>
+                                            </span>
+                                        </div>
+                                        <Divider />
+                                        <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated just now</p>
+                                    </Segment>
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <Segment>
+                                        <div>
+                                            <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
+                                            <span style={{ textAlign: 'right' }}>
+                                                <p>Total Balance</p>
+                                                <h3>$1,234</h3>
+                                            </span>
+                                        </div>
+                                        <Divider />
+                                        <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated 10 minutes ago</p>
+                                    </Segment>
+                                </Grid.Column>
+                    
+                            </Grid.Row>
+
+                            <Grid.Row columns={1}>
+                                <Grid.Column>
+                                    <Segment>
+                                        <div>
+                                            <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
+                                            <span style={{ textAlign: 'right' }}>
+                                                <p>Total Balance</p>
+                                                <h3>$1,234</h3>
+                                            </span>
+                                        </div>
+                                        <Divider />
+                                        <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated just now</p>
+                                    </Segment>
+                                </Grid.Column>
+                            </Grid.Row>
 
                         </Grid>
                     </Content>
