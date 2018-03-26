@@ -23,8 +23,7 @@ class Dashboard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            prices: {},
-            topCoins: {}
+            prices: {}
         }
     }
 
@@ -34,10 +33,6 @@ class Dashboard extends Component {
                 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD'
             )
             .then(res => this.setState({ prices: res.data }))
-    }
-
-    renderTopCoins() {
-        
     }
 
     render() {

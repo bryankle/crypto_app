@@ -12,6 +12,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
+
+
 router(app)
 
 if (process.env.NODE_ENV === 'production') {
