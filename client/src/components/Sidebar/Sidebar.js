@@ -58,6 +58,12 @@ class Sidebar extends Component {
                     </SidebarListItem>
                     <SidebarListItem>
                         <SidebarListLink>
+                            <Icon size='large' inverted name='line chart' />
+                            <SidebarText>Top 50 Coins</SidebarText>
+                        </SidebarListLink>
+                    </SidebarListItem>
+                    <SidebarListItem>
+                        <SidebarListLink>
                             <Icon size='large' inverted name='user circle' />
                             <SidebarText>User Profile</SidebarText>
                         </SidebarListLink>

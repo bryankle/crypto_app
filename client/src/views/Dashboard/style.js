@@ -15,6 +15,7 @@ export const User = styled.div`
 `
 export const Content = styled.main`
     margin-left: 30px;
+    background-color: #f8f8f8;
 `
 
 export const Navbar = styled.header`
@@ -26,7 +27,6 @@ export const Navbar = styled.header`
 export const Main = styled.div`
     margin-left: 260px;
     height: 100vh;
-    background-color: #f8f8f8;
 `
 
 export const CryptoIcon = styled.img`

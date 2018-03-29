@@ -59,7 +59,6 @@ class Dashboard extends Component {
         console.log('this.state')
         console.log(this.state.prices)
         let counter = 0;
-        if (counter == 3) counter = 0;
         let mainElement = [];
         let column = [];
         let row = <Grid.Row columns={4}>
@@ -67,14 +66,18 @@ class Dashboard extends Component {
         </Grid.Row>
 
         for (let i = 0; i < 50; i++) {
-            if (counter % 4 === 0) {
-            
+            console.log('normal')
+
+            if (counter === 4) {
                 counter = 0;
+                console.log("Four")
+
                 mainElement.push(row);
                 row = <Grid.Row columns={4}>
                     {[...column]}
-            </Grid.Row>;
-            column = [];
+                </Grid.Row>;
+                column = [];
+
             }
             // const [name, price_usd]  = this.state.prices[i];
             column.push(<Grid.Column>
@@ -90,6 +93,8 @@ class Dashboard extends Component {
                     <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated 10 minutes ago</p>
                 </Segment>
             </Grid.Column>)
+            counter++;
+
         }
         console.log('Main element');
         console.log(mainElement)
@@ -110,28 +115,10 @@ class Dashboard extends Component {
 
                         <Content>
                             <Grid padded stackable>
-                            {this.renderTopCoins()}
-                                {/* <Grid.Row columns={4}>
-
-                                    <Grid.Column>
-                                        <Segment>
-                                            <div>
-                                                <CryptoIcon src={this.state.images['BTC.png']} />
-                                                <span style={{ textAlign: 'right' }}>
-                                                    <p>{this.state.prices[0].name}</p>
-                                                    <h3>${this.state.prices[0].price_usd}</h3>
-                                                </span>
-                                            </div>
-                                            <Divider />
-                                            <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated 10 minutes ago</p>
-                                        </Segment>
-                                    </Grid.Column>
+                                {this.renderTopCoins()}
 
 
-                                </Grid.Row> */}
-
-
-                                <Grid.Row columns={2}>
+                                {/* <Grid.Row columns={2}>
                                     <Grid.Column>
                                         <Segment>
                                             <div>
@@ -175,7 +162,7 @@ class Dashboard extends Component {
                                             <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated just now</p>
                                         </Segment>
                                     </Grid.Column>
-                                </Grid.Row>
+                                </Grid.Row> */}
 
                             </Grid>
                         </Content>

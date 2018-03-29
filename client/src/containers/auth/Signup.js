@@ -13,7 +13,7 @@ class Signup extends Component {
   handleFormSubmit({ email, password }) {
     this.props.signupUser({ email, password }, () => {
 
-      this.props.history.push('/')
+      this.props.history.push('/dashboard')
     });
   }
 

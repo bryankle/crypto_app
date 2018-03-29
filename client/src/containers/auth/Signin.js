@@ -13,7 +13,7 @@ class Signin extends Component {
     console.log(email, password);
     // Reroute user to main page if sign in was successful
     this.props.signinUser({ email, password }, () => {
-      this.props.history.push('/')
+      this.props.history.push('/dashboard')
     })
   }
 
