@@ -11,10 +11,7 @@ import {
     Image
 } from 'semantic-ui-react'
 
-import Sidebar from '../../components/Sidebar/Sidebar'
-import BTC from '../../assets/images/btc.png';
-import ETH from '../../assets/images/eth.png';
-import LTC from '../../assets/images/ltc.png';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 import { Content, Navbar, Main, CryptoIcon } from './style';
 
@@ -28,17 +25,18 @@ class Dashboard extends Component {
     }
 
     componentWillMount() {
+        // Imports all images from assets foler and assigns to state
         const images = this.importAll(require.context('../../assets/images/logos', false, /\.(png|jpe?g|svg)$/));
         this.setState({ images })
     }
 
     componentDidMount() {
-
         axios
+        // Uses this API to gather coin prices
             .get('https://api.coinmarketcap.com/v1/ticker/?limit=50')
             .then(res => this.setState({ prices: res.data }))
     }
-
+    // Iterates over coin names from imported images to build complete query for min-api.cryptocompare - this api accepts comma delimited values in query
     buildQuery = () => {
         console.log('Building query')
         const fileName = /[^\\\/]+(?=\.[\w]+$)|[^\\\/]+$/g;
@@ -47,7 +45,7 @@ class Dashboard extends Component {
         }).join(',')
         return `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${coins}&tsyms=USD`
     }
-
+    // Used to import images directly from assets folder
     importAll(r) {
         let images = {};
         r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
@@ -116,54 +114,6 @@ class Dashboard extends Component {
                         <Content>
                             <Grid padded stackable>
                                 {this.renderTopCoins()}
-
-
-                                {/* <Grid.Row columns={2}>
-                                    <Grid.Column>
-                                        <Segment>
-                                            <div>
-                                                <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
-                                                <span style={{ textAlign: 'right' }}>
-                                                    <p>Total Balance</p>
-                                                    <h3>$1,234</h3>
-                                                </span>
-                                            </div>
-                                            <Divider />
-                                            <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated just now</p>
-                                        </Segment>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <Segment>
-                                            <div>
-                                                <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
-                                                <span style={{ textAlign: 'right' }}>
-                                                    <p>Total Balance</p>
-                                                    <h3>$1,234</h3>
-                                                </span>
-                                            </div>
-                                            <Divider />
-                                            <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated 10 minutes ago</p>
-                                        </Segment>
-                                    </Grid.Column>
-
-                                </Grid.Row>
-
-                                <Grid.Row columns={1}>
-                                    <Grid.Column>
-                                        <Segment>
-                                            <div>
-                                                <Icon style={{ float: 'left' }} size='huge' name='bitcoin' color='yellow' />
-                                                <span style={{ textAlign: 'right' }}>
-                                                    <p>Total Balance</p>
-                                                    <h3>$1,234</h3>
-                                                </span>
-                                            </div>
-                                            <Divider />
-                                            <p style={{ color: '#a9a9a9', fontSize: '12px' }}>Updated just now</p>
-                                        </Segment>
-                                    </Grid.Column>
-                                </Grid.Row> */}
-
                             </Grid>
                         </Content>
                     </Main>

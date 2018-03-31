@@ -109,8 +109,8 @@ class DesktopContainer extends Component {
                             <Container>
                                 <Menu.Item as='a' onClick={this.scrollToTop} active>Home</Menu.Item>
                                 <Menu.Item onClick={() => this.scrollTo('features')} as='a'>Features</Menu.Item>
-                                <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Work</Menu.Item>
-                                <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Careers</Menu.Item>
+                                {/* <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Work</Menu.Item>
+                                <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Careers</Menu.Item> */}
                                 <Menu.Item position='right'>
                                     <RouterLink to='/signin'>
                                         <Button as='a' inverted={!fixed}>Log in</Button>
