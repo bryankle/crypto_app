@@ -3,6 +3,28 @@ import { SidebarContainer, SidebarListItem, SidebarListLink, SidebarText, Sideba
 import { Icon, Divider } from 'semantic-ui-react';
 import { Collapse } from 'reactstrap';
 
+import styled, { css } from 'styled-components';
+
+
+const Arrow = styled.div`{
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid white;
+
+    
+    position: relative;
+    left: 30px;
+    bottom: 10px;
+    display: inline-block;
+    transition: transform 0.1s linear;
+    ${ props => props.expanded && css`
+        transition: transform 0.1s linear;
+        transform: rotate(180deg);
+    `};
+  }`
+
 class Sidebar extends Component {
     constructor(props) {
         super(props)
@@ -23,6 +45,8 @@ class Sidebar extends Component {
                     <SidebarText user>
                         Benjamin Franklin
                         </ SidebarText>
+                        <Arrow expanded={!this.state.collapse}/>
+                    {/* {this.state.collapse ? (<Arrow />) : (<ArrowDown />)} */}
                 </SidebarListLink>
                 <Collapse isOpen={this.state.collapse}>
                     <SidebarWrapper>

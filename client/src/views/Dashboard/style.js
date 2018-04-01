@@ -25,8 +25,10 @@ export const Navbar = styled.header`
 `
 
 export const Main = styled.div`
-    margin-left: 260px;
     height: 100vh;
+    @media only screen and (min-width: 1024px) {
+        margin-left: 260px;
+    }
 `
 
 export const CryptoIcon = styled.img`

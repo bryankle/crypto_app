@@ -14,6 +14,10 @@ export const SidebarContainer = styled.div`
     padding-top: 20px;
     background-image: url(${SidebarBackground}), linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.5));
     background-blend-mode: overlay;
+
+    @media only screen and (max-width: 1024px) {
+        display: none;
+    }
 `
 
 export const SidebarListItem = styled.li`
@@ -40,6 +44,7 @@ export const SidebarListLink = styled.a`
     position: relative;
     margin-left: 5%;
     top: 25%;
+    width: 300px;
 `
 
 export const SidebarText = styled.p`

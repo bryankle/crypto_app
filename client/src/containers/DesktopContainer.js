@@ -15,13 +15,13 @@ import {
     Sidebar,
     Visibility,
 } from 'semantic-ui-react'
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LandingImg from '../assets/images/landing2.jpg';
 
 import { HomepageHeading } from '../components/HomepageHeading';
 
 import * as Scroll from 'react-scroll';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
@@ -112,12 +112,12 @@ class DesktopContainer extends Component {
                                 {/* <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Work</Menu.Item>
                                 <Menu.Item onClick={() => this.scrollTo('attention')} as='a'>Careers</Menu.Item> */}
                                 <Menu.Item position='right'>
-                                    <RouterLink to='/signin'>
+                                    <Link to='/signin'>
                                         <Button as='a' inverted={!fixed}>Log in</Button>
-                                    </RouterLink>
-                                    <RouterLink to='signup'>
+                                    </Link>
+                                    <Link to='signup'>
                                         <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>Sign Up</Button>
-                                    </RouterLink>
+                                    </Link>
                                 </Menu.Item>
                             </Container>
                         </Menu>

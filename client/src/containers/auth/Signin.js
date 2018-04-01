@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { Form, Segment, Button, Grid, Header, Message } from 'semantic-ui-react';
 import * as actions from '../../actions';
+import { Link } from 'react-router-dom';
 
 class Signin extends Component {
   constructor(props) {
@@ -68,7 +69,7 @@ class Signin extends Component {
             </Segment>
           </Form>
           <Message>
-            New to us? <a href="#">Sign Up</a>
+            New to us? <Link to='/signup'>Sign Up</Link>
           </Message>
         </Grid.Column>
       </Grid>
