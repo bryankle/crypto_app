@@ -10,12 +10,9 @@ import {
     Header,
     Image
 } from 'semantic-ui-react'
-
-import Sidebar from '../../components/Sidebar/Sidebar';
-
 import { Content, Navbar, Main, CryptoIcon } from './style';
 
-class Dashboard extends Component {
+class TopCoins extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -99,27 +96,15 @@ class Dashboard extends Component {
         return mainElement;
     }
 
+
     render() {
-        // console.log(this.state)
-        // console.log(Object.keys(this.state.prices))
         if (Object.keys(this.state.prices).length > 0) {
-            return (
-                <div>
-                    <Sidebar />
-                    <Navbar />
-                        <Content>
-                            {this.props.children}
-                        </Content>
-                </div>
-            )
-
-        }
-
         return (
-            <div></div>
+            <Grid padded stackable>{this.renderTopCoins()}</Grid>
         )
     }
-
+    return <div></div>
+    }
 }
 
-export default Dashboard;
+export default TopCoins;

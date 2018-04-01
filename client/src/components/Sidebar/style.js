@@ -14,7 +14,7 @@ export const SidebarContainer = styled.div`
     padding-top: 20px;
     background-image: url(${SidebarBackground}), linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.5));
     background-blend-mode: overlay;
-
+    
     @media only screen and (max-width: 1024px) {
         display: none;
     }

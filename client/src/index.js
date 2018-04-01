@@ -18,7 +18,7 @@ import LandingPage from './views/Homepage/LandingPage';
 
 // import Signout from './containers/auth/Signout';
 import MenuBar from './components/MenuBar';
-import Dashboard from './views/Dashboard/Dashboard';
+import DashboardContainer from './views/Dashboard/DashboardContainer';
 import { AUTH_USER } from './actions/types';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -46,7 +46,7 @@ ReactDOM.render(
           <Route path="/signup" component={Signup} />
           <Route path="/signin" component={Signin} />
           <Route path="/sign" component={Sign} />
-          <Route path="/dashboard" component={RequireAuth(Dashboard)} />
+          <Route path="/dashboard" component={RequireAuth(DashboardContainer)} />
           {/* <Route path="/signout" component={Signout} /> */}
           <Route exact path="/" component={LandingPage} />
         </Switch>
