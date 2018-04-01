@@ -16,9 +16,10 @@ import {
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 import * as Scroll from 'react-scroll';
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 
 import { HomepageHeading } from '../../components/HomepageHeading';
@@ -68,14 +69,16 @@ const HomepageLayout = () => (
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button size='huge'>Check Us Out</Button>
+            <Link to='/signup'>
+              <Button size='huge'>Check Us Out</Button>
+            </Link>
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>
 
-{/* TESTING */}
-   <Features />
+    {/* TESTING */}
+    <Features />
 
     <Segment style={{ padding: '0em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
@@ -88,7 +91,7 @@ const HomepageLayout = () => (
             <Header as='h3' style={{ fontSize: '2em' }}>"I shouldn't have gone with their competitor."</Header>
             <p style={{ fontSize: '1.33em' }}>
               <Image avatar src={Face} />
-              <b>Ben</b> 
+              <b>Ben</b>
             </p>
           </Grid.Column>
         </Grid.Row>
