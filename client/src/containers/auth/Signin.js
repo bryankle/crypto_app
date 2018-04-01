@@ -27,6 +27,7 @@ class Signin extends Component {
         iconPosition='left'
         placeholder={label}
         type={label === 'Password' ? 'password' : ''}
+        value="guest"
       />
     )
   }
