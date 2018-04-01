@@ -48,7 +48,7 @@ ReactDOM.render(
           <Route path="/sign" component={Sign} />
           <Route path="/dashboard" component={RequireAuth(DashboardContainer)} />
           {/* <Route path="/signout" component={Signout} /> */}
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={token ? DashboardContainer : LandingPage} />
         </Switch>
       </div>
     </BrowserRouter>
