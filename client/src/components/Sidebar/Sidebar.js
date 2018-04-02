@@ -46,7 +46,7 @@ class Sidebar extends Component {
                         Benjamin Franklin
                         </ SidebarText>
                         <Arrow expanded={!this.state.collapse}/>
-                    {/* {this.state.collapse ? (<Arrow />) : (<ArrowDown />)} */}
+
                 </SidebarListLink>
                 <Collapse isOpen={this.state.collapse}>
                     <SidebarWrapper>
@@ -77,7 +77,7 @@ class Sidebar extends Component {
                     <SidebarListItem>
                         <SidebarListLink>
                             <Icon size='large' inverted name='pie graph' />
-                            <SidebarText>Dashboard</SidebarText>
+                            <SidebarText>Portfolio</SidebarText>
                         </SidebarListLink>
                     </SidebarListItem>
                     <SidebarListItem>

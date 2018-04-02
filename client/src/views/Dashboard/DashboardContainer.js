@@ -19,7 +19,6 @@ import { Content, Navbar, Main, CryptoIcon } from './style';
 class DashboardController extends Component {
     constructor(props) {
         super(props)
-
     }
 
 
